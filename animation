@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving people</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #ffffff;
+            font-family: 'Tinos', "Times New Roman", Times, serif;
+            text-align: center;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            margin: 0 0 10px 0;
+            color: #000000;
+        }
+        a {
+            font-size: 1.8rem;
+            color: #000000;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #555555;
+        }
+        
+        /* Animation Styles */
+        .marquee {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .track {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+        .track img {
+            height: 80px; /* Adjust scale of your figures here */
+            margin: 0 40px;
+            opacity: 0.8;
+            animation: wobble 3s ease-in-out infinite;
+        }
+        /* Stagger the wobble so they do not rotate in unison */
+        .track img:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>moving people</h1>
+        <a href="YOUR_INSTAGRAM_LINK_HERE">Instagram</a>
+        <a href="YOUR_PINTEREST_LINK_HERE">Pinterest</a>
+        <a href="YOUR_GOOGLE_DRIVE_LINK_HERE">Google Drive</a>
+    </div>
+
+    <div class="marquee">
+        <div class="track">
+            <img src="Person_Rail_Walking_WithSuitcase.png" alt="figure 1">
+            <img src="Person_Train_Sitting_CrossLegged.png" alt="figure 2">
+            <img src="Person_Rail_Standing_WithToteBag.png" alt="figure 3">
+            <img src="Group_Rail_Waiting_WithLuggage.png" alt="figure 4">
+            <img src="Person_Train_Lounging_WithPhone.png" alt="figure 5">
+        </div>
+    </div>
+</body>
+</html>
