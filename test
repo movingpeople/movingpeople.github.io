@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving people</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 50px 0;
+            font-family: 'Tinos', "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
+        }
+        
+        /* Mobile First: 75% width */
+        .text-content {
+            width: 75%; 
+            text-align: left;
+            z-index: 10;
+        }
+        
+        .text-content p {
+            text-indent: 2em; /* First line indent */
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        
+        .center-links {
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        a {
+            font-size: 1.5rem;
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: #555555;
+        }
+
+        /* Edge Pictures - Hidden on mobile */
+        .edge-picture {
+            display: none; 
+        }
+
+        /* Desktop Adjustments */
+        @media (min-width: 1024px) {
+            .text-content {
+                width: 20%; /* Desktop narrow width */
+            }
+            
+            /* Reveal and position pictures on desktop */
+            .edge-picture {
+                display: block;
+                position: absolute;
+                width: 12vw; /* Scales relative to viewport width */
+                max-width: 200px;
+                opacity: 0.9;
+            }
+            .img-left {
+                left: 5%;
+                top: 25%;
+            }
+            .img-right {
+                right: 5%;
+                top: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Person_Rail_Standing_WithPhone.png" alt="figure left" class="edge-picture img-left">
+    <img src="Person_Train_Sitting_CrossLegged.png" alt="figure right" class="edge-picture img-right">
+
+    <div class="text-content">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <p style="text-indent: 0;">welcome _ willkommen _ вітаю<br>vítejte _ witam _ vítajte</p>
+        </div>
+        
+        <p>This page is a product of my Master's Thesis in Architecture, Spatial Practices of Moving People, which deals with the experiences, challenges, and adaptation methods of people moving between the East and West of Europe in 2020s.</p>
+        
+        <p>The work has discovered a largely unsatisfactory state of spaces of transit used by these people, who often lack economic or democratic agency in them. The work aims to raise attention to related topics among actors of spatial production.</p>
+        
+        <p>As one of the products, I have prepared a collection of entourage that I created for my drawings, linked with real people and situations I have met, observed, and documented.</p>
+        
+        <p style="text-indent: 0; margin-top: 40px;">I will be looking forward to your feedback at the project's Instagram.</p>
+        <p style="text-indent: 0;">Martin</p>
+
+        <div class="center-links">
+            <a href="YOUR_DOWNLOAD_LINK_HERE">download entourage here</a>
+            <a href="http://instagram.com/pod_roz_">Instagram</a>
+            <a href="http://pinterest.com/martinsalek0/moving-people/">Pinterest</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px; font-size: 0.8rem;">
+            Free for commercial use under CC BY 4.0. Credit: movingpeople.github.io
+        </div>
+    </div>
+
+</body>
+</html>
