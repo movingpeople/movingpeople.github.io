@@ -4,51 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>moving people</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+    
     <style>
+        /* Enables smooth scrolling across the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            padding: 0;
+            padding: 0 0 50px 0;
+            font-family: 'Tinos', "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #000000;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #ffffff;
-            font-family: 'Tinos', "Times New Roman", Times, serif;
-            text-align: center;
+            position: relative;
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
         }
-        .container {
+        
+        /* Mobile First: 75% width */
+        .text-content {
+            width: 75%; 
+            text-align: left;
+            z-index: 10;
+        }
+        
+        .text-content p {
+            text-indent: 2em; /* First line indent */
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        
+        .center-links {
+            text-align: center;
+            margin-top: 50px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 20px;
         }
-        h1 {
-            font-size: 2.2rem;
-            font-weight: normal;
-            margin: 0 0 10px 0;
-            color: #000000;
-        }
+        
         a {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #000000;
             text-decoration: underline;
         }
+        
         a:hover {
             color: #555555;
+        }
+
+        /* Jump Button Styling */
+        .jump-button {
+            display: inline-block;
+            margin: 30px auto 30px auto;
+            padding: 8px 16px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .jump-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Generic Inline Image Styling */
+        .inline-picture {
+            display: block;
+            max-width: 350px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        /* Edge Pictures - Mobile (Inline normal flow) */
+        .edge-picture {
+            display: block;
+            max-width: 250px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        /* Desktop Adjustments */
+        @media (min-width: 1024px) {
+            .text-content {
+                width: 30%; /* Desktop narrow width */
+            }
+            
+            /* Reveal and position pictures on desktop */
+            .edge-picture {
+                position: absolute;
+                width: 12vw; /* Scales relative to viewport width */
+                max-width: 200px;
+                margin: 0;
+                opacity: 0.9;
+            }
+            .img-left {
+                left: 5%;
+                top: 25%;
+            }
+            .img-right {
+                right: 5%;
+                top: 50%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>moving people</h1>
-        <a href="http://instagram.com/pod_roz_">Instagram</a>
-        <a href="http://pinterest.com/martinsalek0/moving-people/">Pinterest</a>
-        <!--<a href="https://drive.google.com/drive/folders/1eCLNXZip9dPYzVMYJVgcio-xqnERIWdv?usp=sharing">Google Drive</a>-->
-        <p>
-        <p>Free for commercial use under CC BY 4.0. Credit: movingpeople.github.io</p>
+
+    <div class="text-content">
+        <img src="passengers-boarding2.png" alt="top figure" class="inline-picture" style="margin-top: 0; max-width: 250px;">
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <p style="text-indent: 0; font-size: 1.5rem;">welcome _ willkommen _ вітаю<br>vítejte _ witam _ vítajte</p>
+            
+            <a href="#download-section" class="jump-button">jump directly to download</a>
+        </div>
+        
+        <p>This page is a product of my Master's Thesis in Architecture, Spatial Practices of Moving People, which deals with the experiences, challenges, and adaptation methods of people moving between the East and West of Europe in 2020s.</p>
+        
+        <img src="eating-web.png" alt="figure left" class="edge-picture img-left" style="margin-top: 0; max-width: 350px;">
+
+        <p>The work has discovered a largely unsatisfactory state of spaces of transit used by these people, who often lack economic or democratic agency in them. The work aims to raise attention to related topics among actors of spatial production.</p>
+        
+        <img src="nastiia-web.png" alt="figure right" class="edge-picture img-right" style="margin-top: 0; max-width: 200px;>
+
+        <p>As one of the products, I have prepared a collection of entourage that I created for my drawings, linked with real people and situations I have met, observed, and documented.</p>
+        
+        <p>I will be looking forward to your feedback at the project's Instagram.</p>
+        <p style="text-align: center">Martin</p>
+
+        <div class="center-links" id="download-section">
+            <a href="YOUR_DOWNLOAD_LINK_HERE" class="jump-button">download entourage here</a>
+            
+            <img src="bag.png" alt="middle links figure" class="inline-picture" style="max-width: 100px; margin-top: 50px;" >
+
+            <a href="http://instagram.com/pod_roz_">Instagram</a>
+            <a href="http://pinterest.com/martinsalek0/moving-people/">Pinterest</a>
+        </div>
+        
+        <img src="sleeping-sitting.png" alt="bottom figure" class="inline-picture" style="max-width: 400px; margin-top: 20px;">
+
+        <div style="text-align: center; margin-top: 20px; font-size: 0.8rem;">
+            Free for commercial use under CC BY 4.0. 
+            <p style="text-indent: 0">Credit: <a style="font-size: 0.8rem;" href="http://movingpeople.github.io/0.html">movingpeople.github.io</a></p>
+        </div>
     </div>
+
 </body>
 </html>
