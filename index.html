@@ -51,15 +51,34 @@
             gap: 20px;
         }
 
+        /* Nav Card (Framed Button with Image) */
+        .nav-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000000;
+            padding: 10px 10px;
+            text-decoration: none;
+            color: #000000;
+            transition: background-color 0.2s, color 0.2s;
+            margin: 0 auto;
+        }
+
+        .nav-card:hover {
+            background-color: #AAAAAA;
+            color: #ffffff;
+        }
+
         .nav-card img {
             width: 100%;
-            max-width: 50px; /* Keeps the image smaller than the 200px frame */
+            max-width: 400px; /* Keeps the image smaller than the frame */
             height: auto;
             margin-bottom: 10px;
         }
 
         .nav-card:hover img {
-            mix-blend-mode: screen;
+            mix-blend-mode: multiply;
         }
         
         a {
@@ -80,7 +99,7 @@
             font-size: 1.2rem;
             text-decoration: none;
             border: 1px solid #000000;
-            border-radius: 4px;
+            border-radius: 0px;
             transition: background-color 0.2s, color 0.2s;
         }
 
@@ -155,10 +174,9 @@
 
         <div class="center-links" id="download-section">
             
-            
-            <a href="YOUR_DOWNLOAD_LINK_HERE" class="nav-card" style="font-size: 1.5rem;">
+            <a href="download-archive.html" class="nav-card" style="font-size: 1.5rem;">
                 <img src="web-customs_.png" alt="customs">
-                <span>download</span>    
+                <span>download files</span>    
             </a>
             
             <img src="bag.png" alt="middle links figure" class="inline-picture" style="max-width: 100px; margin-top: 15px;" >
