@@ -18,20 +18,73 @@
 
         body {
             margin: 0;
-            padding: 50px 20px;
+            padding: 100px 20px 50px 20px; /* Top padding increased for smart header */
             font-family: 'Tinos', "Times New Roman", Times, serif;
             background-color: #ffffff;
             color: #000000;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
             overflow-x: hidden;
         }
         
         .content-wrapper {
             width: 100%;
-            max-width: 1050px; /* Constrains the maximum width on large desktop screens */
+            max-width: 1050px;
             text-align: left;
+            position: relative;
+        }
+
+        /* Smart Header CSS */
+        .smart-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 10px 0px;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        .header-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .header-link:hover {
+            color: #555555;
+        }
+
+        .header-link img {
+            width: 64px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .smart-header {
+                gap: 15px;
+                padding: 10px;
+            }
+            .header-link {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+            .header-link img {
+                width: 40px;
+            }
         }
 
         /* Typography Classes */
@@ -50,8 +103,7 @@
         .intro-text p {
             line-height: 1.4;
             margin-bottom: 20px;
-            max-width: 450px;
-            
+            max-width: 350px;
         }
 
         .technical-notes {
@@ -83,7 +135,7 @@
             border-radius: 0px;
             padding: 20px;
             box-sizing: border-box;
-            text-decoration: none; /* Removes link underline */
+            text-decoration: none;
             color: #000000;
             transition: background-color 0.2s, color 0.2s;
         }
@@ -98,7 +150,6 @@
             max-width: 800px;
             height: auto;
             margin-bottom: 20px;
-            /*background-color: white;*/ /* Placeholder tint */
         }
 
         /* Reused Button Styling */
@@ -119,27 +170,6 @@
         .jump-button:hover {
             background-color: #AAAAAA;
             color: #ffffff;
-        }
-        
-        /* Forces the image background to remain visible if it has transparency */
-        /*.grid-item:hover img {
-            mix-blend-mode: screen; 
-        }*/
-
-
-        
-        
-
-        /* Bottom Link Section */
-        .link-list {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .link-list .jump-button {
-            margin: 5px 0;
         }
         
         /* Navigation Card (Home Button) */
@@ -163,12 +193,10 @@
             background-color: #AAAAAA;
             color: #ffffff;
         }
-        
-        
 
         .nav-card img {
             width: 100%;
-            max-width: 130px; /* Keeps the image smaller than the 200px frame */
+            max-width: 130px;
             height: auto;
             margin-bottom: 10px;
         }
@@ -184,6 +212,7 @@
             grid-template-columns: 1fr; /* Mobile: 1 column */
             gap: 20px;
             margin-bottom: 40px;
+            width: 100%;
         }
 
         /* Tablet Adjustments for Small Grid */
@@ -204,7 +233,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centres text if image is removed */
+            justify-content: center;
             text-align: center;
             border: 1px solid #000000;
             border-radius: 0px;
@@ -223,25 +252,15 @@
 
         .small-grid-item img {
             width: 100%;
-            max-width: 80px; /* Small placeholder size */
+            max-width: 80px;
             height: auto;
             margin-bottom: 10px;
-        }
-
-        .small-grid-item:hover img {
-            /**mix-blend-mode: screen;*/
         }
 
         .small-grid-item h3 {
             font-weight: normal;
             font-size: 1.1rem;
             margin: 0;
-        }
-        .content-wrapper {
-            width: 100%;
-            max-width: 1050px;
-            text-align: left;
-            position: relative; /* Mandatory for absolute positioning of child elements */
         }
 
         /* Architect Image Styling (Mobile First) */
@@ -260,12 +279,10 @@
                 top: 0px; 
                 right: 0px;
                 max-width: 600px;
-                margin: 0;
-                z-index: -1; /* Forces the image behind interactive buttons and text */
+                z-index: -1;
                 opacity: 0.9;
             }
 
-            /* Constrain text width on desktop to prevent visual collision */
             .intro-text p, .technical-notes {
                 max-width: 60%; 
             }
@@ -274,21 +291,31 @@
 </head>
 <body>
 
-    <div class="content-wrapper">
-    
-        <a href="0.html" class="nav-card">
-            <img src="bag.png" alt="home icon">
-            <span>go back home</span>
+    <nav id="smart-header" class="smart-header">
+        <a href="index.html" class="header-link">
+            <img src="placeholder_people.png" alt="moving people icon">
+            <span>moving people</span>
         </a>
+        <a href="download.html" class="header-link">
+            <img src="placeholder_download.png" alt="download icon">
+            <span>download entourage</span>
+        </a>
+        <a href="read.html" class="header-link">
+            <img src="placeholder_read.png" alt="read icon">
+            <span>read the work</span>
+        </a>
+    </nav>
+
+    <div class="content-wrapper">
+
         
         <div class="intro-text">
             
             <img src="architect_.png" alt="architect figure" class="architect-img">
             
-            <h1>moving people download archive</h1>
+            <h1 style="margin-top: 150px">moving people download archive</h1>
             
-            
-            <p>Feel free to save these libraries, use them in your projects, and share them with your colleagues. I look forward to seeing how you utilize them. Please share your feedback with me at the project's <a href="http://instagram.com/pod_roz_" style="color: #000000;">Instagram</a>.</p>
+            <p style="max-width: 400px" class="intro.text">Feel free to save these libraries, use them in your projects, and share them with your colleagues. I look forward to seeing how you utilize them. Please share your feedback with me at the project's <a href="http://instagram.com/pod_roz_" style="color: #000000;">Instagram</a>.</p>
             
             <div class="technical-notes">
                 <p>DWG files are drawn in mm.</p>
@@ -310,9 +337,7 @@
             </a>
         </div>
 
-        <div class="link-list">
-            
-            <div class="small-grid-container">
+        <div class="small-grid-container">
             <a href="https://movingpeople.short.gy/drive" class="small-grid-item">
                 <img src="web-check_.png" alt="pdf icon" style="max-width: 180px">
                 <h3>browse all files (Google Drive)</h3>
@@ -328,7 +353,6 @@
                 <h3>download all PDF (vector) files</h3>
             </a>
             
-            
             <a href="https://github.com/movingpeople/movingpeople.github.io/releases/download/movingpeople/DWG.single.files.zip" class="small-grid-item">
                 <h3>download all DWG files</h3>
             </a>
@@ -340,14 +364,30 @@
             <a href="https://github.com/movingpeople/movingpeople.github.io/releases/download/movingpeople/PNG.zip" class="small-grid-item">
                 <h3>download all PNG files</h3>
             </a>
-            </div>
-        </div>
         </div>
         
-   
+    </div>
+        
     <div style="text-align: center; margin-top: 20px; font-size: 0.8rem;">
-            Free for commercial use under CC BY 4.0. 
-            <p style="text-indent: 0">Credit: <a style="font-size: 0.8rem;" href="http://movingpeople.github.io/0.html">movingpeople.github.io</a></p>
-        </div>
+        Free for commercial use under CC BY 4.0. 
+        <p style="text-indent: 0">Credit: <a style="font-size: 0.8rem;" href="http://movingpeople.github.io/0.html">movingpeople.github.io</a></p>
+    </div>
+
+    <script>
+        let lastScrollPosition = 0;
+        const navHeader = document.getElementById('smart-header');
+
+        window.addEventListener('scroll', function() {
+            let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 80) {
+                navHeader.style.top = '-150px'; 
+            } else {
+                navHeader.style.top = '0';
+            }
+            
+            lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+        }, false);
+    </script>
 </body>
 </html>

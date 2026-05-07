@@ -17,9 +17,9 @@
             scroll-behavior: smooth;
         }
 
-body {
+        body {
             margin: 0;
-            padding: 100px 20px 50px 20px; 
+            padding: 0 0 50px 0;
             font-family: 'Tinos', "Times New Roman", Times, serif;
             background-color: #ffffff;
             color: #000000;
@@ -27,58 +27,7 @@ body {
             flex-direction: column;
             align-items: center;
             position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Smart Header CSS */
-        .smart-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #000000;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            padding: 10px 0px;
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: top 0.3s;
-        }
-
-        .header-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #000000;
-            font-size: 1.2rem;
-            transition: color 0.2s;
-        }
-
-        .header-link:hover {
-            color: #555555;
-        }
-
-        .header-link img {
-            width: 64px;
-            height: auto;
-            margin-bottom: 5px;
-        }
-
-        @media (max-width: 600px) {
-            .smart-header {
-                gap: 15px;
-                padding: 10px;
-            }
-            .header-link {
-                font-size: 0.8rem;
-                text-align: center;
-            }
-            .header-link img {
-                width: 40px;
-            }
+            overflow-x: hidden; /* Prevents horizontal scrollbar */
         }
         
         /* Mobile First: 75% width */
@@ -201,20 +150,6 @@ body {
     </style>
 </head>
 <body>
-    <nav id="smart-header" class="smart-header">
-        <a href="index.html" class="header-link">
-            <img src="placeholder_people.png" alt="moving people icon">
-            <span>moving people</span>
-        </a>
-        <a href="download.html" class="header-link">
-            <img src="placeholder_download.png" alt="download icon">
-            <span>download entourage</span>
-        </a>
-        <a href="read.html" class="header-link">
-            <img src="placeholder_read.png" alt="read icon">
-            <span>read the work</span>
-        </a>
-    </nav>
 
     <div class="text-content">
         <img src="passengers-boarding2.png" alt="top figure" class="inline-picture" style="margin-top: 0; max-width: 250px;">
@@ -239,20 +174,15 @@ body {
 
         <div class="center-links" id="download-section">
             
-            <a href="download-archive.html"  target="_blank" rel="noopener noreferrer" class="nav-card" style="font-size: 1.5rem;">
+            <a href="download-archive.html" class="nav-card" style="font-size: 1.5rem;">
                 <img src="web-customs_.png" alt="customs">
                 <span>download files</span>    
             </a>
-
+            
             <img src="bag.png" alt="middle links figure" class="inline-picture" style="max-width: 100px; margin-top: 15px;" >
-            
-            <a href="read.html" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">read the digital library of the work</a>
 
-           
-            
-
-            <a href="http://instagram.com/pod_roz_"target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="http://pinterest.com/martinsalek0/moving-people/" target="_blank" rel="noopener noreferrer">Pinterest</a>
+            <a href="http://instagram.com/pod_roz_">Instagram</a>
+            <a href="http://pinterest.com/martinsalek0/moving-people/">Pinterest</a>
         </div>
         
         <img src="sleeping-sitting.png" alt="bottom figure" class="inline-picture" style="max-width: 400px; margin-top: 20px;">
@@ -262,25 +192,6 @@ body {
             <p style="text-indent: 0">Credit: <a style="font-size: 0.8rem;" href="http://movingpeople.github.io/0.html">movingpeople.github.io</a></p>
         </div>
     </div>
-<script>
-        let lastScrollPosition = 0;
-        const navHeader = document.getElementById('smart-header');
 
-        window.addEventListener('scroll', function() {
-            let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
-            /* If scrolling down and past the top buffer, hide header */
-            if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 80) {
-                navHeader.style.top = '-150px'; 
-            } else {
-                /* If scrolling up, restore header */
-                navHeader.style.top = '0';
-            }
-            
-            /* Prevents negative scrolling values on mobile bounce effects */
-            lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
-        }, false);
-    </script>
-    
 </body>
 </html>

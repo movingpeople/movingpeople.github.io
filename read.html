@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving people - read the work</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 100px 20px 20px 20px; /* Top padding reserved for smart header */
+            font-family: 'Tinos', "Times New Roman", Times, serif;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Smart Header CSS */
+        .smart-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 10px 0px;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+
+        .header-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .header-link:hover {
+            color: #555555;
+        }
+
+        .header-link img {
+            width: 64px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .smart-header {
+                gap: 15px;
+                padding: 10px;
+            }
+            .header-link {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+            .header-link img {
+                width: 40px;
+            }
+        }
+
+        /* Content Wrapper for Iframe */
+        .content-wrapper {
+            width: 100%;
+            max-width: 1050px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1; /* Pushes footer to the bottom */
+        }
+
+        .iframe-container {
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 36px;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: calc(100vh - 250px); /* Dynamically fills vertical space without triggering scroll */
+            min-height: 400px; /* Safety fallback for extreme landscape displays */
+            border: 1px solid #000000;
+            box-sizing: border-box;
+        }
+
+        /* Reused Button Styling for Fallback Link */
+        .jump-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 8px 16px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 1px solid #000000;
+            color: #000000;
+            border-radius: 0px;
+            box-sizing: border-box;
+            transition: background-color 0.2s, color 0.2s;
+            text-align: center;
+        }
+
+        .jump-button:hover {
+            background-color: #AAAAAA;
+            color: #ffffff;
+        }
+
+        /* Footer Styling */
+        .footer-credits {
+            text-align: center;
+            margin-top: auto; /* Aligns to bottom if content is short */
+            padding-top: 20px;
+            font-size: 0.8rem;
+            width: 100%;
+        }
+
+        .footer-credits p {
+            text-indent: 0;
+            margin: 5px 0 0 0;
+        }
+
+        .footer-credits a {
+            font-size: 0.8rem;
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .footer-credits a:hover {
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="smart-header" class="smart-header">
+        <a href="index.html" class="header-link">
+            <img src="placeholder_people.png" alt="moving people icon">
+            <span>moving people</span>
+        </a>
+        <a href="download.html" class="header-link">
+            <img src="placeholder_download.png" alt="download icon">
+            <span>download entourage</span>
+        </a>
+        <a href="read.html" class="header-link">
+            <img src="placeholder_read.png" alt="read icon">
+            <span>read the work</span>
+        </a>
+    </nav>
+
+    <div class="content-wrapper">
+        
+        <div class="iframe-container">
+            <iframe 
+                src="https://fliphtml5.com/bookcase/coctd/" 
+                seamless="seamless" 
+                scrolling="yes" 
+                allowtransparency="true" 
+                allowfullscreen="true">
+            </iframe>
+        </div>
+
+        <a href="https://fliphtml5.com/bookcase/coctd/" target="_blank" rel="noopener noreferrer" class="jump-button">
+            open bookcase in a new tab
+        </a>
+        
+    </div>
+        
+    <div class="footer-credits">
+        Free for commercial use under CC BY 4.0. 
+        <p>Credit: <a href="http://movingpeople.github.io/0.html">movingpeople.github.io</a></p>
+    </div>
+
+    <script>
+        let lastScrollPosition = 0;
+        const navHeader = document.getElementById('smart-header');
+
+        window.addEventListener('scroll', function() {
+            let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 80) {
+                navHeader.style.top = '-150px'; 
+            } else {
+                navHeader.style.top = '0';
+            }
+            
+            lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+        }, false);
+    </script>
+</body>
+</html>
